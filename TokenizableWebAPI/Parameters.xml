@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <parameter name="environment" match="/configuration/appSettings/add[@key='environment']/@value" stringToReplace="*" token="#{ENVIRONMENT_NAME}#" />
+  <!--
+  stringToReplace="*" is optional, it means that entire node determined by xpath specified in 'match' attribute be replaced with token.
+  Alternatively, this attribute can be omitted, or assigned an empty string.
+  -->
+
+  <parameter name="endpoint" match="/configuration/system.serviceModel/client/endpoint[@name='DomainServiceEndpoint']/@address" stringToReplace="/localhost/" token="/#{ENVIRONMENT_BASEADDRESS}#/" />
+  <parameter name="endpoint" match="/configuration/system.serviceModel/client/endpoint[@name='DomainServiceEndpoint']/@address" stringToReplace="net.pipe" token="#{NETWORK_SCHEME}#" />
+  <!--stringToReplace="/localhost/" implies that only the substring "/localhost/" in the node determined by xpath specified in 'match' attribute be replaced with token-->
+</parameters>
