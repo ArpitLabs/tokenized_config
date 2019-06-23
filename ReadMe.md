@@ -19,7 +19,7 @@ This approach allows developers to keep application configuration as they need i
 
 For example when a developer needs to add a new AppSetting key-value in the config that is supposed to have different value for Dev, QA and Production environments, she can keep the app.config specific to Dev environment where she frequently needs to run the application. She needs to define a new element in Parameters.xml with XPATH of this appsetting element, 'value' attribute and the token literal that need to replace to value of attribute on the build server.
 
-# Release Pipeline:
+## Release Pipeline:
 
 Stanadard AzureDevOps Release pipeline with following essential steps
 1. Create Azure App Service (Azure Resource Group Deployment)
