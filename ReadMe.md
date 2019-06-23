@@ -1,11 +1,11 @@
-##Introduction
+# Introduction
 
 This is a sample .Net application that demonstrates how a single configuration can be used for deployment in multiple environments.
 
 The application configuration is tokenized with the help of a PowerShell script in the build pipeline with the help of an XML file which stores the XPATH of config elements that need to replaced by a specific token. The output of build is a tokenized configuration, which has "tokens" instead of real values that vary for each environment. These tokens are replaced back with real values for specific environment during release pipeline using standard Replace Tokens task (https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens)
 
 
-#Build Pipeline:
+## Build Pipeline:
 
 Standard AzureDevOps build pipeline with following essential steps
 1. Nuget Restore
@@ -19,7 +19,7 @@ This approach allows developers to keep application configuration as they need i
 
 For example when a developer needs to add a new AppSetting key-value in the config that is supposed to have different value for Dev, QA and Production environments, she can keep the app.config specific to Dev environment where she frequently needs to run the application. She needs to define a new element in Parameters.xml with XPATH of this appsetting element, 'value' attribute and the token literal that need to replace to value of attribute on the build server.
 
-#Release Pipeline:
+# Release Pipeline:
 
 Stanadard AzureDevOps Release pipeline with following essential steps
 1. Create Azure App Service (Azure Resource Group Deployment)
